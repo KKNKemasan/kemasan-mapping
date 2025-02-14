@@ -7,10 +7,9 @@ const PinMap = ({ modelPath, position, onClick }) => {
   const { scene } = useGLTF(modelPath);
   const ref = useRef();
 
-  // Animasi floating (naik turun)
   useFrame((state, delta) => {
     if (ref.current) {
-      ref.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 5;
+      ref.current.position.y = position[1] + Math.sin(state.clock.elapsedTime) * 1;
       ref.current.rotation.y += delta * 0.5; 
     }
   });
@@ -21,7 +20,7 @@ const PinMap = ({ modelPath, position, onClick }) => {
       position={position}
       ref={ref}
       onClick={(e) => {
-        e.stopPropagation(); // Menghentikan event bubbling
+        e.stopPropagation();
         if (onClick) onClick();
       }}
     />

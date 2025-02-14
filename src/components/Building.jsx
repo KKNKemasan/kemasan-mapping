@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import { useGLTF } from '@react-three/drei';
 
-const Building = ({ modelPath, position, onClick }) => {
+const Building = ({ modelPath, position }) => {
   const { scene } = useGLTF(modelPath);
   const ref = useRef();
 
@@ -11,10 +11,6 @@ const Building = ({ modelPath, position, onClick }) => {
       object={scene}
       position={position}
       ref={ref}
-      onClick={(e) => {
-        e.stopPropagation(); // Menghentikan event bubbling
-        onClick();
-      }}
     />
   );
 };

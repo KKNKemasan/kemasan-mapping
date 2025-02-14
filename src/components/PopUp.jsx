@@ -12,17 +12,17 @@ const Popup = ({ selectedObject, onClose }) => {
         <p>{selectedObject.description}</p>
 
         <div className="sosmed">
-          <a href="">
-            <img class="wa" src="/wa-icon.png" alt="" />
+          <a href={selectedObject.youtube.link}>
+            <img className="yt" src={selectedObject.youtube.image} alt="Youtube" />
           </a>
-          <a href="">
-            <img class="fb" src="/fb-icon.png" alt="" />
+          <a href={selectedObject.whatsapp.link}>
+            <img className="wa" src={selectedObject.whatsapp.image} alt="Whatsapp" />
           </a>
-          <a href="">
-            <img class="ig" src="/ig-icon.png" alt="" />
+          <a href={selectedObject.facebook.link}>
+            <img className="fb" src={selectedObject.facebook.image} alt="Facebook" />
           </a>
-          <a href="https://www.youtube.com/@bolangchannel_/videos">
-            <img class="yt" src="/yt-icon.png" alt="" />
+          <a href={selectedObject.instagram.link}>
+            <img className="ig" src={selectedObject.instagram.image} alt="Instagram" />
           </a>
         </div>
         <button onClick={onClose}>Close</button>

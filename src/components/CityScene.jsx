@@ -4,49 +4,42 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, Sky } from '@react-three/drei';
 import Building from './Building';
 import PinMap from './PinMap';
+import objectsData from '../data/data';
+import pinData from '../data/pin';
+import CustomCameraControls from './CustomCameraControls';
 
 const CityScene = ({ onObjectClick }) => {
   return (
     <Canvas
-      camera={{ position: [0, 0, 200], fov: 50 }}
+      camera={{ position: [0, 0, 10], fov: 50 }}
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <Suspense fallback={null}>
       <Sky sunPosition={[100, 20, 100]} />
-        {/* kelurahan */}
-        {/* <Building 
-          position={[0, 0, 0]} 
-          modelPath="/assets/models/kemasan-objects/kelurahan.glb"
-        /> */}
-        {/* Jalan */}
-        <Building 
-          position={[0, 0, 0]} 
-          modelPath="/assets/models/kemasan-objects/road-kemasan.glb"
-        />
+        {pinData.map((object) => (
+          <PinMap
+            key={object.id}
+            position={object.position}
+            modelPath={object.modelPath}
+            onClick={() => onObjectClick({ 
+              name: object.name,
+              description: object.description,
+              youtube: object.youtube,
+              whatsapp: object.whatsapp,
+              facebook: object.facebook,
+              instagram: object.instagram,
+            })}
+          />
+        ))}
 
-        {/* Punden */}
-        {/* <Building 
-          position={[0, 0, 0]} 
-          modelPath="/assets/models/kemasan-objects/punden.glb"
-        /> */}
-
-        {/* Ikan Cupang */}
-        <PinMap 
-          position={[0, 10, 0]} 
-          modelPath="/assets/models/pin-ikan.glb"
-          onClick={() => onObjectClick({ name: 'Pecut Samandiman ', description: 'Pecut Samandiman adalah salah satu UMKM yang berada di kelurahan Kemasan Kota Kediri yang menjual berbagai model pecut mulai ukuran 3 meter dan seterusnya. Pecut ini sangat direkomendasikan untuk kesenian tradisional jaranan.' })}
-        />
-        <Building 
-          position={[0, 0, 0]} 
-          modelPath="/assets/models/kemasan-objects/ikan.glb"
-        />
-
-        {/* rumah singgah */}
-        {/* <Building 
-          position={[0, 0, 0]} 
-          modelPath="/assets/models/kemasan-objects/rumah-singgah.glb"
-        /> */}
+        {objectsData.map((object) => (
+          <Building
+            key={object.id}
+            position={object.position}
+            modelPath={object.modelPath}
+          />
+        ))}
       </Suspense>
       <OrbitControls
         enablePan={true} // Memungkinkan menggeser kamera
@@ -55,7 +48,7 @@ const CityScene = ({ onObjectClick }) => {
         minDistance={-100} // Jarak zoom minimum
         maxDistance={1000} // Jarak zoom maksimum
       />
-      <Environment preset="city" />
+      <Environment preset="sunset" />
     </Canvas>
   );
 };
