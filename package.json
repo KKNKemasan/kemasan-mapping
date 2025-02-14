@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://KKNKemasan.github.io/kemasan-mapping",
+  "homepage": "https://KKNKemasan.github.io/kemasan-mapping/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
