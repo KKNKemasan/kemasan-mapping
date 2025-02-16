@@ -1,20 +1,27 @@
-// src/components/Navbar.jsx
 import React, { useState } from 'react';
+import PopupSejarah from './Sejarah';
+import PopupProfil from './PopupProfil';
 import '../style.css'; // File CSS untuk styling
 
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showSejarahPopup, setShowSejarahPopup] = useState(false);
+  const [showProfilPopup, setShowProfilPopup] = useState(false);
 
-  const handleMouseEnter = () => {
-    if (window.innerWidth > 768) {
-      setMobileMenuOpen(true);
-    }
+  const handleSejarahClick = () => {
+    setShowSejarahPopup(true);
   };
 
-  const handleMouseLeave = () => {
-    if (window.innerWidth > 768) {
-      setMobileMenuOpen(false);
-    }
+  const handleProfilClick = () => {
+    setShowProfilPopup(true);
+  };
+
+  const handleCloseSejarahPopup = () => {
+    setShowSejarahPopup(false);
+  };
+
+  const handleCloseProfilPopup = () => {
+    setShowProfilPopup(false);
   };
 
   const toggleMobileMenu = () => {
@@ -22,23 +29,37 @@ const Navbar = () => {
   };
 
   return (
-    <nav
-      className="navbar"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
+    <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">KemasanMapping</div>
         <div className="navbar-toggle" onClick={toggleMobileMenu}>
           ☰
         </div>
         <ul className={`navbar-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-          <li><a href="#home">Profil Desa</a></li>
-          <li><a href="#about">Map</a></li>
-          <li><a href="#services">Sejarah</a></li>
-          <li><a href="#contact">Tentang Kami</a></li>
+          <li>
+            <button onClick={handleProfilClick} className="navbar-button">
+              Profil
+            </button>
+          </li>
+          <li>
+            <button 
+              onClick={handleSejarahClick} 
+              className="navbar-button"
+            >
+              Sejarah
+            </button>
+          </li>
+          <li>
+          <button
+              className="navbar-button"
+            >
+              Tentang Kami
+            </button>
+          </li>
         </ul>
       </div>
+      {showSejarahPopup && <PopupSejarah onClose={handleCloseSejarahPopup} />}
+      {showProfilPopup && <PopupProfil onClose={handleCloseProfilPopup} />}
     </nav>
   );
 };
