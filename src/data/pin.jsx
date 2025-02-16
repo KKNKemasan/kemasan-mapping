@@ -7,19 +7,19 @@ const pinData = [
         modelPath: '/kemasan-mapping/assets/models/pin-kereta.glb',
         position: [5, 0, 30],
         youtube: {
-          image: "/yt-icon.png",
+          image: "/kemasan-mapping/yt-icon.png",
           link: "https://www.youtube.com/",
         },
         whatsapp: {
-          image: "/wa-icon.png",
+          image: "/kemasan-mapping/wa-icon.png",
           link: "https://www.youtube.com/",
         },
         facebook: {
-          image: "/fb-icon.png",
+          image: "/kemasan-mapping/fb-icon.png",
           link: "https://www.youtube.com/",
         },
         instagram: {  
-          image: "/ig-icon.png",
+          image: "/kemasan-mapping/ig-icon.png",
           link: "https://www.youtube.com/",
         },
     },

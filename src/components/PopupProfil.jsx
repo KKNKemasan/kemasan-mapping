@@ -4,20 +4,13 @@ import '../style.css';
 
 const PopupProfil = ({ onClose }) => {
   const profilData = {
-    geografis: `Secara Georafis, Kelurahan Kemasan terletak pada -7081'86.5" lintang selatan dan 112001'58.0" bujur timur. 
-    Jarak dari Kelurahan Kemasan ke kantor Kecamatan 2 km dan dari Kelurahan Kemasan ke balai kota adalah 1 km.
-    `,
+    geografis: `Secara Geografis, Kelurahan Kemasan terletak pada -7081'86.5" lintang selatan dan 112001'58.0" bujur timur. 
+    Jarak dari Kelurahan Kemasan ke kantor Kecamatan 2 km dan dari Kelurahan Kemasan ke balai kota adalah 1 km.`,
     batasWilayah: `
-      - Sebelah Utara: Kelurahan kel. Balowerti dan Kel. Dandangan
+      - Sebelah Utara: Kelurahan Balowerti dan Kelurahan Dandangan
       - Sebelah Selatan: Kelurahan Jagalan
       - Sebelah Timur: Kelurahan Banjaran 
-      - Sebelah Barat: Kecamatan Setono Gedong dan Kel. Banjaran
-    `,
-    strukturPemerintahan: `
-      - Lurah: John Doe
-      - Sekretaris: Jane Smith
-      - Kepala Urusan Pemerintahan: Michael Brown
-      - Kepala Urusan Pembangunan: Sarah Johnson
+      - Sebelah Barat: Kecamatan Setono Gedong dan Kelurahan Banjaran
     `,
     ekonomiUnggulan: [
       'UMKM Ikan Hias',
@@ -45,7 +38,7 @@ const PopupProfil = ({ onClose }) => {
 
         <section>
           <h3>3. Struktur Pemerintahan Kelurahan Kemasan</h3>
-          <pre>{profilData.strukturPemerintahan}</pre>
+          <img src="/kemasan-mapping/diagram-struktur.png" alt="Diagram Struktur Pemerintahan" />
         </section>
 
         <section>
@@ -62,7 +55,7 @@ const PopupProfil = ({ onClose }) => {
           <p>{profilData.potensiKelurahan}</p>
         </section>
 
-        <button onClick={onClose}>Tutup</button>
+        <button className="popup-profil-close-btn" onClick={onClose}>Tutup</button>
       </div>
     </div>
   );
