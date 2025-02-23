@@ -46,14 +46,7 @@ const Navbar = () => {
               onClick={handleSejarahClick} 
               className="navbar-button"
             >
-              Sejarah
-            </button>
-          </li>
-          <li>
-          <button
-              className="navbar-button"
-            >
-              Tentang Kami
+              Sejarah Kemasan
             </button>
           </li>
         </ul>

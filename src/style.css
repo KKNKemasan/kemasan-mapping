@@ -386,3 +386,59 @@ body {
 .popup-profil-close-btn:hover {
   background-color: #0097e6;
 }
+
+/* style for loading */
+.loading-container {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  border-radius: 10px;
+}
+
+.loading-spinner {
+  border: 4px solid #968f8f;
+  border-top: 4px solid #00a8ff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* developer contact */
+.contact-info {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+}
+
+.contact-info h3 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}

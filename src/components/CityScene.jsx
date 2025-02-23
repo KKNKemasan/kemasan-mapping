@@ -6,7 +6,7 @@ import Building from './Building';
 import PinMap from './PinMap';
 import objectsData from '../data/data';
 import pinData from '../data/pin';
-import CustomCameraControls from './CustomCameraControls';
+import Loading from './Loading';
 
 const CityScene = ({ onObjectClick }) => {
   return (
@@ -15,7 +15,7 @@ const CityScene = ({ onObjectClick }) => {
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loading />}>
       <Sky sunPosition={[100, 20, 100]} />
         {pinData.map((object) => (
           <PinMap

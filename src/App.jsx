@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import CityScene from './components/CityScene';
 import Popup from './components/PopUp';
+import ContactInfo from './components/ContactInfo';
 
 function App() {
   const [selectedObject, setSelectedObject] = useState(null);
@@ -22,6 +23,7 @@ function App() {
       {selectedObject && (
         <Popup selectedObject={selectedObject} onClose={handleClosePopup} />
       )}
+      <ContactInfo />
     </div>
   );
 }
